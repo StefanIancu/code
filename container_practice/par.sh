@@ -4,14 +4,8 @@ start() {
   echo "Starting parity"
 }
 
-check_par() {
-    read answer 
-    if answer % 2 == 0
-    then
-        echo "Round number!"
-    else
-        echo "Not a round number!"
-    fi
+middle() {
+    echo "Hello from shell!"
 }
 
 finish() {
@@ -19,5 +13,5 @@ finish() {
 }
 
 start &&
-    check_par &&
+    middle &&
     finish
