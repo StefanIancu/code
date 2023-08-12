@@ -19,6 +19,13 @@ spec:
       containers:
       - name: pod-info-container
         image: kimschles/pod-info-app:latest
+        resources:
+          requests: # do not schedule this pod unless it has the at least the specified memory and cpu below 
+            memory: "64Mi"  # 64m = 0.64 bytes, 64mi = 64 mebibytes, 64M = 64 megabytes
+            cpu: "250m"
+          limits: # stop running this container if it exceeds the following memory and cpu 
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 3000
         env:

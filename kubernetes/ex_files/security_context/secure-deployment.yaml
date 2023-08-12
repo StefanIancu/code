@@ -28,11 +28,11 @@ spec:
             cpu: "500m"
         securityContext:
           allowPrivilegeEscalation: false
-          runAsNonRoot: true
+          runAsNonRoot: true    #!!!!!!!!
           capabilities:
             drop:
               - ALL
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: true   #!!!!!!
         ports:
         - containerPort: 3000
         env:
