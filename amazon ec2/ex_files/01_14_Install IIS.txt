@@ -1,0 +1,6 @@
+<powershell>
+Import-Module ServerManager
+Add-WindowsFeature Web-Server
+Start-Service W3SVC
+New-Item -ItemType "file" -Path "C:\inetpub\wwwroot\index.html" Set-Content -Path "C:\inetpub\wwwroot\index.html" -Value "<html><body><h1>Hello World!</h1></body></html>"
+</powershell>
