@@ -1,0 +1,5 @@
+#!/bin/bash
+aws s3 mb s3://sti1998
+aws s3 sync s3://sti2802 s3://sti1998
+aws s3 ls s3://sti1998
+
