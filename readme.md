@@ -8,3 +8,5 @@ keeping track of DevOps practices studied
 - started an EC2 instance with Linux AMI
 - pulled the image
 - ran it on a different environment with success
+- created an AWS Pipeline
+- created a GitHub Actions pipeline to mount the image
