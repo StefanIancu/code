@@ -1,0 +1,56 @@
+# deployment and service in 1 file 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 1  #pods running
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp #image name
+        image: nanajanashia/k8s-demo-app:v1.0 #image from dockerhub
+        ports:
+        - containerPort: 3000 #default port where container runs
+        env:
+        - name: USER_NAME
+          valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: mongo-user
+        - name: USER_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: mongo-password
+        - name: DB_URL 
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service   #to match service from webapp-config.yaml file
+spec:
+  type: NodePort  #external service type / make it external service / default = ClusterIP
+  selector:
+    app.kubernetes.io/name: webapp  #to match label name
+  ports:
+    - protocol: TCP
+      port: 3000   #any port you like, common to match container port
+      targetPort: 3000   #to match container port 
+      nodePort: 30101   #exposes the service on each IP at a static port / pre-defined range - see doc
+
+# to access from the browser: 
+# -minikube ip 
+# -kubectl get sv (right port from the NodePort)
