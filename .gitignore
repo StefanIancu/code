@@ -2,3 +2,4 @@
 .DS_Store
 winactivatevenv.txt
 submoduleadd.txt
+.terraform
