@@ -14,3 +14,4 @@ keeping track of DevOps practices studied
 - created a CI Pipeline in Jenkins / created a Jenkinsfile
 - fired-up Minikube / created .yaml manifests
 - deployed a web-app with a MongoDB in a Kubernetes cluster
+- setup Prometheus monitoring using Helm in Kubernetes
