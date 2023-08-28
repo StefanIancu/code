@@ -15,4 +15,4 @@ keeping track of DevOps practices studied
 - fired-up Minikube / created .yaml manifests
 - deployed a web-app with a MongoDB in a Kubernetes cluster
 - setup Prometheus monitoring using Helm in Kubernetes
-- monitor a third-party app with Prometheus Explorator
+- monitor a third-party app with Prometheus Exporter
